@@ -63,6 +63,10 @@ class PaginateRoute
         }
 
         $query = $currentRoute->parameter('pageQuery');
+        
+        if ($query === null) {
+            return 1;
+        }
 
         return (int) str_replace($this->pageKeyword.'/', '', $query) ?: 1;
     }
